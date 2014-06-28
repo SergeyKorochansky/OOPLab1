@@ -1,9 +1,9 @@
 all: hello
 
-output.o: output.rs
-	rustc --crate-type=lib output.rs
+input.o: input.rs
+	rustc --crate-type=lib input.rs
 
-hello: hello.rs output.o
+hello: hello.rs input.o
 	rustc -L . hello.rs
 
 clean:
