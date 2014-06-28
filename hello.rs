@@ -1,9 +1,7 @@
+extern crate output;
+
 use std::io;
 use std::str;
-fn output(name: ~str, a: int, b: int) {
-    println!("Hello, {}.", name);
-    println!("{} + {} = {}", a, b, a+b);
-}
 
 fn main() {
     print!("Enter your name: ");
@@ -20,5 +18,5 @@ fn main() {
     let b_fixed = str::replace(b_raw, "\n", "");
     let b: int = from_str(b_fixed).unwrap();
 
-    output(name, a, b);
+    output::print(name, a, b);
 }

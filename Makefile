@@ -1,7 +1,10 @@
 all: hello
 
-hello: hello.rs
-	rustc hello.rs -o hello
+output.o: output.rs
+	rustc --crate-type=lib output.rs
+
+hello: hello.rs output.o
+	rustc -L . hello.rs
 
 clean:
-	rm -rf *.o hello
+	rm -rf *.o *.rlib hello
